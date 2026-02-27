@@ -512,3 +512,4 @@ easyconfigs:
   # Note! ELPA is built with NVidia CC 7.0 only!
   # See https://gitrepo.service.rug.nl/cit-hpc/habrok/cit-hpc-easybuild/-/issues/100 for details 
   - ELPA-2025.06.002-NVHPC-25.3-CUDA-12.8.0.eb
+  - BCFtools-1.22-GCC-14.2.0.eb
