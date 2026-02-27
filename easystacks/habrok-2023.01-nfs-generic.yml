@@ -1,0 +1,23 @@
+easyconfigs:
+  - Amber-22.0-foss-2021b-AmberTools-22.3-CUDA-11.4.1.eb
+  - AMS-2022.103-iimpi-2021b-intelmpi.eb
+  - CPLEX-22.1.1-GCCcore-11.2.0.eb
+  - FLUENT-2022R2.eb
+  - Gaussian-16.B.01-AVX2.eb
+  - GaussView-5.0.9.eb
+  - Molpro-mpp-2021.2.0.linux_x86_64_mpipr.eb
+  - Molpro-mpp-2021.2.0.linux_x86_64_sockets.eb
+  - Mplus-8.4.eb
+  - ORCA-5.0.4-gompi-2022a.eb
+  - ORCA-5.0.4-foss-2023a-xtb.eb
+  - AMS-2023.104-iimpi-2022b-intelmpi.eb
+  - SPM-12.5_r7771-MATLAB-2022b-r5.eb
+  - Molpro-mpp-2024.1.0.linux_x86_64_mpipr.eb
+  - Molpro-mpp-2024.1.0.linux_x86_64_sockets.eb
+  - Molpro-mpp-2025.4.1.linux_x86_64.eb
+  - ORCA-6.0.0-foss-2023b-avx2-xtb.eb
+  - ORCA-6.1.0-gompi-2023b-avx2.eb
+  - ORCA-6.1.1-gompi-2023b-avx2.eb:
+      options:
+        # see https://github.com/easybuilders/easybuild-easyconfigs/pull/24748
+        from-commit: d9ed03a1e507cd156f1d4a919141e5562b6c6942

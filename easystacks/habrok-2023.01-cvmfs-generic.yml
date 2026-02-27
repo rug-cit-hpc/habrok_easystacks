@@ -1,0 +1,13 @@
+easyconfigs:
+  - COMSOL-6.0.eb
+  - COMSOL-6.2.eb
+  - COMSOL-6.3.eb
+  - Mathematica-13.1.0.eb
+  - MATLAB-2022b-r5.eb
+  - StataSE-17.eb:
+      options:
+        ignore-osdeps: True
+  - StataSE-18.eb:
+      options:
+        ignore-osdeps: True
+  - Nextflow-24.04.2.eb
