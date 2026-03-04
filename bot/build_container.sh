@@ -4,7 +4,7 @@ SW_STACK_REPO=hpc.rug.nl
 SW_STACK_OS=rocky8
 SW_STACK_VERSION=2023.01
 BUILD_CONTAINER=docker://gregistry.service.rug.nl/cit-hpc/habrok/cit-hpc-easybuild/build-node:${SW_STACK_OS}
-EB_CONFIG_FILE=$(dirname $(realpath $0))/../../config/eb_configuration_habrok
+EB_CONFIG_FILE=cit-hpc-easybuild/config/eb_configuration_habrok
 
 function show_help() {
   echo "
