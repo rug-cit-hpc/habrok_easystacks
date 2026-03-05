@@ -501,7 +501,7 @@ if [[ $USE_CHECK_BUILD_ARTEFACTS_SCRIPT -eq 0 ]]; then
         os_type=$(cfg_get_value "architecture" "os_type")
         software_subdir=$(cfg_get_value "architecture" "software_subdir")
         accelerator=$(cfg_get_value "architecture" "accelerator")
-        prefix="${repo_version}/rocky8/software/${software_subdir}"
+        prefix="${repo_version}/rocky8/${software_subdir}"
         echo "prefix: ${prefix}"
         # if we build for an accelerator, the prefix is different
         if [[ ! -z ${accelerator} ]]; then
