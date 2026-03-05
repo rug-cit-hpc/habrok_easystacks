@@ -172,7 +172,7 @@ if [[ $USE_CHECK_BUILD_ARTEFACTS_SCRIPT -eq 0 ]]; then
       grep_out=$(grep -v "^>> searching for " ${job_dir}/${job_out} | grep "${GP_tarball_created}" | sort -u)
       if [[ $? -eq 0 ]]; then
           TARBALL_CREATED=1
-          TARBALL=$(echo ${grep_out} | sed -e 's@^.*/\(2023.01[^/ ]*\) .*$@\1@')
+          TARBALL=$(echo ${grep_out} | sed -e 's@^\(/.*\.tar\.gz\).*$@\1@')
       else
           TARBALL_CREATED=0
       fi
