@@ -4,7 +4,7 @@ SW_STACK_REPO=hpc.rug.nl
 SW_STACK_OS=rocky8
 SW_STACK_VERSION=2023.01
 BUILD_CONTAINER=docker://gregistry.service.rug.nl/cit-hpc/habrok/cit-hpc-easybuild/build-node:${SW_STACK_OS}
-EB_CONFIG_FILE=$(dirname $(realpath $0))/../../config/eb_configuration_habrok
+EB_CONFIG_FILE=cit-hpc-easybuild/config/eb_configuration_habrok
 
 function show_help() {
   echo "
@@ -286,6 +286,12 @@ then
   echo "Software installation failed, copying EasyBuild log to \$eb_log_dst"
   cp "\$eb_log_src" "\$eb_log_dst"
 fi
+
+# Look for missing installations
+easystacks=$(echo "$COMMAND" | grep -o '\S*\.yml$')
+echo ${COMMAND}
+echo ${easystacks}
+${PWD}/bot/check_missing_installations.sh ${easystacks} ${PR_DIFF}
 
 # Generate Lmod cache
 DOT_LMOD="\${EASYBUILD_INSTALLPATH}/.lmod"
