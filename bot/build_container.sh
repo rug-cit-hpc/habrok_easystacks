@@ -289,7 +289,9 @@ fi
 
 # Look for missing installations
 easystacks=$(echo "$COMMAND" | grep -o '\S*\.yml$')
-${PWD}/bot/check_missing_installations.sh ${easystacks} ${pr_diff}
+echo ${COMMAND}
+echo ${easystacks}
+${PWD}/bot/check_missing_installations.sh ${easystacks} ${PR_DIFF}
 
 # Generate Lmod cache
 DOT_LMOD="\${EASYBUILD_INSTALLPATH}/.lmod"
