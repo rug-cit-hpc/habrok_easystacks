@@ -5,6 +5,8 @@ git clone --depth 1 --branch main https://gitrepo.service.rug.nl/cit-hpc/habrok/
 
 # Set PR_DIFF
 pr_diff=$(ls [0-9]*.diff | head -n 1)
+# We will need it in the container script
+export PR_DIFF=${pr_diff}
 
 # Get changed easystacks
 changed_easystacks=$(
@@ -33,10 +35,9 @@ run_build_and_check() {
     local easystacks="$1"
     local build_args="$2"
     local pattern="$3"
-    echo "Building easystack ${easystacks}, with build_args: ${build_args} using pattern ${pattern}.\n"
     if [ -n "${easystacks}" ]; then
+        echo "Building easystack ${easystacks}, with build_args: ${build_args} using pattern ${pattern}..."
         ./bot/build_container.sh ${build_args} ${easystacks}
-        ./bot/check_missing_installations.sh ${easystacks} ${pr_diff}
     fi
 }
 

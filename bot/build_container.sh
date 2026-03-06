@@ -287,6 +287,10 @@ then
   cp "\$eb_log_src" "\$eb_log_dst"
 fi
 
+# Look for missing installations
+easystacks=$(echo "$COMMAND" | grep -o '\S*\.yml$')
+${PWD}/bot/check_missing_installations.sh ${easystacks} ${pr_diff}
+
 # Generate Lmod cache
 DOT_LMOD="\${EASYBUILD_INSTALLPATH}/.lmod"
 LMOD_RC="\${DOT_LMOD}/lmodrc.lua"
