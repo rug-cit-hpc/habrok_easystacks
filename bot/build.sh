@@ -36,7 +36,7 @@ run_build_and_check() {
     echo "Building easystack ${easystacks}, with build_args: ${build_args} using pattern ${pattern}.\n"
     if [ -n "${easystacks}" ]; then
         ./bot/build_container.sh ${build_args} ${easystacks}
-        $TOPDIR/check_missing_installations.sh ${easystacks} ${pr_diff}
+        ./bot/check_missing_installations.sh ${easystacks} ${pr_diff}
     fi
 }
 
