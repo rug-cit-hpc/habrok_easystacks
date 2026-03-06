@@ -22,7 +22,7 @@ fi
 
 # Define build configurations as an associative array
 declare -A build_configs=(
-    ["regular"]="-o /scratch/public/software-tarballs -- eb --robot --easystack;cvmfs.yml"
+    ["regular"]="-o /scratch/public/software-tarballs -- eb --robot --easystack;cvmfs-bot.yml"
     ["generic"]="-g -o /scratch/public/software-tarballs -- eb --robot --easystack;cvmfs-generic.yml"
     ["nfs"]="-r -o /scratch/userapps/hb-software/software-tarballs -- eb --robot --easystack;nfs-generic"
     ["nfs_generic"]="-g -r -o /scratch/userapps/hb-software/software-tarballs -- eb --robot --easystack;nfs-generic"
@@ -33,6 +33,7 @@ run_build_and_check() {
     local easystacks="$1"
     local build_args="$2"
     local pattern="$3"
+    echo "Building easystack ${easystacks}, with build_args: ${build_args} using pattern ${pattern}.\n"
     if [ -n "${easystacks}" ]; then
         ./bot/build_container.sh ${build_args} ${easystacks}
         $TOPDIR/check_missing_installations.sh ${easystacks} ${pr_diff}
