@@ -294,7 +294,7 @@ echo ${EASYSTACKS}
 eb --missing --easystack ${EASYSTACKS} 2>&1 | tee ${EB_MISSING_OUT}
 exit_code=\${PIPESTATUS[0]}
 
-if [[ ${exit_code} -eq 0 ]]; then
+if [[ \${exit_code} -eq 0 ]]; then
     echo "Command 'eb --missing ...' succeeded, analysing output..."
 else
     echo "Command 'eb --missing ...' failed, check log '${EB_MISSING_OUT}'"
