@@ -4,7 +4,7 @@ SW_STACK_REPO=hpc.rug.nl
 SW_STACK_OS=rocky8
 SW_STACK_VERSION=2023.01
 BUILD_CONTAINER=docker://gregistry.service.rug.nl/cit-hpc/habrok/cit-hpc-easybuild/build-node:${SW_STACK_OS}
-EB_CONFIG_FILE=$(dirname $(realpath $0))/../../config/eb_configuration_habrok
+EB_CONFIG_FILE=cit-hpc-easybuild/config/eb_configuration_habrok
 
 function show_help() {
   echo "
@@ -254,6 +254,8 @@ done
 
 # Generate the script that we need to actually build the software.
 export COMMAND=$@
+export EASYSTACKS=$(echo "$COMMAND" | grep -o '\S*\.yml$')
+export EB_MISSING_OUT=${MYTMPDIR}/eb_missing.out
 TMPSCRIPT=${MYTMPDIR}/eb_install.sh
 cat << EOF > $TMPSCRIPT
 #cd $HOME
@@ -285,6 +287,39 @@ then
   eb_log_dst="${PWD}/\$(basename \$eb_log_src)"
   echo "Software installation failed, copying EasyBuild log to \$eb_log_dst"
   cp "\$eb_log_src" "\$eb_log_dst"
+fi
+
+# Look for missing installations
+echo ${EASYSTACKS}
+eb --missing --easystack ${EASYSTACKS} 2>&1 | tee ${EB_MISSING_OUT}
+exit_code=\${PIPESTATUS[0]}
+
+if [[ \${exit_code} -eq 0 ]]; then
+    echo "Command 'eb --missing ...' succeeded, analysing output..."
+else
+    echo "Command 'eb --missing ...' failed, check log '${EB_MISSING_OUT}'"
+
+fi
+
+# the above assesses the installed software for each easyconfig provided in
+# the easystack file and then print messages such as
+# `No missing modules!`
+# or
+# `2 out of 3 required modules missing:`
+# depending on the result of the assessment. Hence, we need to check if the
+# output does not contain any line with ` required modules missing:`
+
+grep " required modules missing:" ${EB_MISSING_OUT} > /dev/null
+exit_code=\$?
+
+# if grep returns 1 (` required modules missing:` was NOT found), we set
+# MODULES_MISSING to 0, otherwise (it was found or another error) we set it to 1
+if [[ \${exit_code} -eq 1 ]]; then
+    MODULES_MISSING=0
+    echo "No missing installations, party time!"
+else
+    MODULES_MISSING=1
+    echo "On no, some installations are still missing, how did that happen?!"
 fi
 
 # Generate Lmod cache

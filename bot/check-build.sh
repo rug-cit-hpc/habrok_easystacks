@@ -172,7 +172,7 @@ if [[ $USE_CHECK_BUILD_ARTEFACTS_SCRIPT -eq 0 ]]; then
       grep_out=$(grep -v "^>> searching for " ${job_dir}/${job_out} | grep "${GP_tarball_created}" | sort -u)
       if [[ $? -eq 0 ]]; then
           TARBALL_CREATED=1
-          TARBALL=$(echo ${grep_out} | sed -e 's@^.*/\(eessi[^/ ]*\) .*$@\1@')
+          TARBALL=$(echo ${grep_out} | sed -e 's@^\(/.*\.tar\.gz\).*$@\1@')
       else
           TARBALL_CREATED=0
       fi
@@ -501,8 +501,8 @@ if [[ $USE_CHECK_BUILD_ARTEFACTS_SCRIPT -eq 0 ]]; then
         os_type=$(cfg_get_value "architecture" "os_type")
         software_subdir=$(cfg_get_value "architecture" "software_subdir")
         accelerator=$(cfg_get_value "architecture" "accelerator")
-        prefix="${repo_version}/software/${os_type}/${software_subdir}"
-
+        prefix="${repo_version}/rocky8/${software_subdir}"
+        echo "prefix: ${prefix}"
         # if we build for an accelerator, the prefix is different
         if [[ ! -z ${accelerator} ]]; then
           prefix="${prefix}/accel/${accelerator}"
