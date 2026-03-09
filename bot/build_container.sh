@@ -314,7 +314,7 @@ exit_code=\$?
 
 # if grep returns 1 (` required modules missing:` was NOT found), we set
 # MODULES_MISSING to 0, otherwise (it was found or another error) we set it to 1
-if [[ ${exit_code} -eq 1 ]]; then
+if [[ \${exit_code} -eq 1 ]]; then
     MODULES_MISSING=0
     echo "No missing installations, party time!"
 else
