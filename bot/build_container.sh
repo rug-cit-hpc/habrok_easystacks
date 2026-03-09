@@ -292,7 +292,7 @@ fi
 # Look for missing installations
 echo ${EASYSTACKS}
 eb --missing --easystack ${EASYSTACKS} 2>&1 | tee ${EB_MISSING_OUT}
-exit_code=${PIPESTATUS[0]}
+exit_code=\${PIPESTATUS[0]}
 
 if [[ ${exit_code} -eq 0 ]]; then
     echo "Command 'eb --missing ...' succeeded, analysing output..."
