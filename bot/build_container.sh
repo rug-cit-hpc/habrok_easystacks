@@ -254,6 +254,7 @@ done
 
 # Generate the script that we need to actually build the software.
 export COMMAND=$@
+export EASYSTACKS=$(echo "$COMMAND" | grep -o '\S*\.yml$')
 TMPSCRIPT=${MYTMPDIR}/eb_install.sh
 cat << EOF > $TMPSCRIPT
 #cd $HOME
@@ -288,10 +289,8 @@ then
 fi
 
 # Look for missing installations
-easystacks=$(echo "$COMMAND" | grep -o '\S*\.yml$')
-echo ${COMMAND}
-echo ${easystacks}
-eb --missing --easystack ${easystacks}
+echo ${EASYSTACKS}
+eb --missing --easystack ${EASYSTACKS}
 
 # Generate Lmod cache
 DOT_LMOD="\${EASYBUILD_INSTALLPATH}/.lmod"
