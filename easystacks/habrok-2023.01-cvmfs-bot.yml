@@ -1,2 +1,3 @@
 easyconfigs:  
   - BCFtools-1.22-GCC-14.2.0.eb
+  - gh-2.86.0.eb
