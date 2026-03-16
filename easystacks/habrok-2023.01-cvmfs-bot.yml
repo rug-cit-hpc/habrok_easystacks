@@ -1,2 +1,3 @@
 easyconfigs:  
   - BCFtools-1.22-GCC-14.2.0.eb
+  - bzip2-1.0.8.eb
