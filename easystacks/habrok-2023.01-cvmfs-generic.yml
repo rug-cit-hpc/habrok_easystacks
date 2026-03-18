@@ -10,4 +10,7 @@ easyconfigs:
   - StataSE-18.eb:
       options:
         ignore-osdeps: True
+  - StataSE-19.eb:
+      options:
+        ignore-osdeps: True
   - Nextflow-24.04.2.eb
