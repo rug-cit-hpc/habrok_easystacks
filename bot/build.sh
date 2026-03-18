@@ -26,8 +26,8 @@ fi
 declare -A build_configs=(
     ["regular"]="-o /scratch/public/software-tarballs -- eb --robot --easystack;cvmfs-bot.yml"
     ["generic"]="-g -o /scratch/public/software-tarballs -- eb --robot --easystack;cvmfs-generic.yml"
-    ["nfs"]="-r -o /scratch/userapps/hb-software/software-tarballs -- eb --robot --easystack;nfs-generic"
-    ["nfs_generic"]="-g -r -o /scratch/userapps/hb-software/software-tarballs -- eb --robot --easystack;nfs-generic"
+    ["nfs"]="-r -o /scratch/userapps/hb-software/software-tarballs -- eb --robot --easystack;nfs.yml"
+    ["nfs_generic"]="-g -r -o /scratch/userapps/hb-software/software-tarballs -- eb --robot --easystack;nfs-generic.yml"
 )
 
 # Function to run build and check
