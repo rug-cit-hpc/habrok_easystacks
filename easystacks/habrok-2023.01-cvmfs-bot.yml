@@ -8,3 +8,7 @@ easyconfigs:
       options:
         # see https://github.com/easybuilders/easybuild-easyconfigs/pull/25568
         from-commit: 83650cee8cffc0ece4bebfc2c0be7d6c854df46a
+  - DIRAC-26.0-foss-2025a.eb:
+      options:
+        # see https://github.com/easybuilders/easybuild-easyconfigs/pull/25428
+        from-commit: 41cbf5ae347eef7bc1c6d1b19a7cd293d0efa7d7
