@@ -3,6 +3,4 @@ easyconfigs:
   - gh-2.86.0.eb
   - Miniforge3-25.3.0-3.eb
   - bzip2-1.0.8.eb
-  - gh-2.86.0.eb
-  - Miniforge3-25.3.0-3.eb
   - libpng-1.6.34.eb
