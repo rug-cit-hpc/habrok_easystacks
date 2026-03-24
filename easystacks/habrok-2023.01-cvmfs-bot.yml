@@ -1,3 +1,5 @@
 easyconfigs:  
   - BCFtools-1.22-GCC-14.2.0.eb
   - bzip2-1.0.8.eb
+  - gh-2.86.0.eb
+  - Miniforge3-25.3.0-3.eb
