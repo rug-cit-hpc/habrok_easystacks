@@ -4,4 +4,7 @@ easyconfigs:
   - Miniforge3-25.3.0-3.eb
   - bzip2-1.0.8.eb
   - libpng-1.6.34.eb
-  - DIRAC-26.0-intel-2025a.eb
+  - DIRAC-26.0-intel-2025a.eb:
+      options:
+      # see https://github.com/easybuilders/easybuild-easyconfigs/pull/25568
+      from-commit: 83650cee8cffc0ece4bebfc2c0be7d6c854df46a
