@@ -1,5 +1,6 @@
 easyconfigs:  
   - BCFtools-1.22-GCC-14.2.0.eb
   - DIRAC-26.0-foss-2025a.eb
+  - bzip2-1.0.8.eb
   - gh-2.86.0.eb
   - Miniforge3-25.3.0-3.eb
