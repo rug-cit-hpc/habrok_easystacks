@@ -12,3 +12,10 @@ easyconfigs:
       options:
         # see https://github.com/easybuilders/easybuild-easyconfigs/pull/25428
         from-commit: 41cbf5ae347eef7bc1c6d1b19a7cd293d0efa7d7
+  - networkx-3.5-gfbf-2025a.eb
+  - prodigal-2.6.3-GCCcore-14.2.0.eb
+  - MMseqs2-18-8cc5c-gompi-2025a.eb
+  - HMMER-3.4-gompi-2025a.eb
+  - parallel-20250722-GCCcore-14.2.0.eb
+  - openpyxl-3.1.5-GCCcore-14.2.0.eb
+  - build-1.3.0-GCCcore-14.2.0.eb
