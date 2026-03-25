@@ -17,5 +17,4 @@ easyconfigs:
   - MMseqs2-18-8cc5c-gompi-2025a.eb
   - HMMER-3.4-gompi-2025a.eb
   - parallel-20250722-GCCcore-14.2.0.eb
-  - parallel-20250722-GCCcore-14.2.0.eb
   - openpyxl/3.1.5-GCCcore-14.2.0.eb
